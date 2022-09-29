@@ -56,8 +56,20 @@ class _MyHomePageState extends State<MyHomePage> {
           itemCount: Recipe.samples.length,
           itemBuilder: (BuildContext context, int index) {
             //return Text(Recipe.samples[index].label);
-            // TODO: Add GestureDetector
-            return buildRecipeCard(Recipe.samples[index]);
+            // Add GestureDetector
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const Text('Detail page');
+                    },
+                  ),
+                );
+              },
+              child: buildRecipeCard(Recipe.samples[index]),
+            );
           },
         ),
       ),
